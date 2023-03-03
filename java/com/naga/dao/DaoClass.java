@@ -104,7 +104,9 @@ public class DaoClass implements DaoSkelton
 	public List<Emp> readData()
 	{
 		String sql="select * from employee inner join address on employee.addrId=address.addrId;";
-		return jdbcTemplate.query(sql, new ClassMapper());
+		List<Emp> employees=jdbcTemplate.query(sql, new ClassMapper());
+		System.out.println("size of employees: "+employees.size());
+		return employees;
 	}
 	
 	public List<Emp> readData(String name)
